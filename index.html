@@ -23,7 +23,7 @@
                 display:grid;
                 grid-template-columns: 200px auto;
             }
-                .left{
+                .nav{
                     padding-top: 50px;
                     padding-left:15px;
                     padding-right: 0%;
@@ -46,46 +46,43 @@
                         border-radius: 5px 0 0 0;
                         /* border-left: thick solid #71A063; */
                     }
-                .right{
+                .aside{
                     display:grid;
                     grid-template-rows: 1% 99%;
                 }
-                    .rightHeadSpace{
+                    .contentsHeadSpace{
                         background-color: #eee;
                     }
-                    .target{
+                    .contents{
                         color:blue;
                     }
                         iframe{
                             height:100%;
+                            width: 100%;
                             padding-left: 10px;
                             border:none;
                         }
     </style>
     </head>
     <body>
-        <div class='mainhHeadSpace'>
+        <header class='mainhHeadSpace'>
             <span>DEMO [갱신일 : 2021-02-07]</span>
-        </div>
-        <div class='main'>
-            <div id='left' class='left'>
+        </header>
+        <main class='main'>
+            <nav id='nav' class='nav'>
                 <div class='btn' onclick='openPage("ifr1.html",this,event)'>
                     <span>* leftbtn1</span>
                 </div>
                 <div class='btn' onclick='openPage("ifr2.html",this,event)'>
                     <span>* leftbtn2</span>
-            </div>
-
-            </div>
-            <div id='right' class='right'>
-                <div class='rightHeadSpace'>
-
                 </div>
-                <div id='target' class='target'>
+            </nav>
 
-                </div>
-            </div>
-        </div>
+            <aside id='aside' class='aside'>
+                <header class='contentsHeadSpace'></header>
+                <main id='contents' class='contents'></main>
+            </aside>
+        </main>
 
         <script>
             openPage("ifr1.html", document.getElementsByClassName('btn')[0]);
@@ -94,7 +91,7 @@
                     v.classList.remove('clicked');
                 })
                 which.classList.add('clicked')
-                var Rside = document.getElementById('target')
+                var Rside = document.getElementById('contents')
                 Rside.innerText=''
                 var iframe = document.createElement('iframe')
                 iframe.setAttribute('src',target)
