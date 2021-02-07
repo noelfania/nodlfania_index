@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <style>
+        *{
+            margin:0;
+        }
+        html, body{
+            height:100%;
+        }
+            .mainhHeadSpace{
+                height:30px;
+                /* background-color: #71A064; */
+               /*  background-color:  #516B82; */
+                background-color:  #71A063;
+                color :#eee;
+                display:grid;
+                padding-left: 1%;
+                place-items: center start;
+            }
+            .main{
+                height: 96%;
+                display:grid;
+                grid-template-columns: 200px auto;
+            }
+                .left{
+                    padding-top: 50px;
+                    padding-left:15px;
+                    padding-right: 0%;
+                    background-color: #eee;
+                }   
+                    .btn{
+                        display:grid;
+                        place-items: center start;
+                        height:30px;
+                        background-color: #eee;
+                        padding-left:10%;
+                    }
+                    .btn:hover{
+                        background-color: white;
+                        cursor: pointer;
+                        border-radius: 5px 0 0 0;
+                    }
+                    .clicked {
+                        background-color: white;
+                        border-radius: 5px 0 0 0;
+                        /* border-left: thick solid #71A063; */
+                    }
+                .right{
+                    display:grid;
+                    grid-template-rows: 1% 99%;
+                }
+                    .rightHeadSpace{
+                        background-color: #eee;
+                    }
+                    .target{
+                        color:blue;
+                    }
+                        iframe{
+                            height:100%;
+                            padding-left: 10px;
+                            border:none;
+                        }
+    </style>
+    </head>
+    <body>
+        <div class='mainhHeadSpace'>
+            <span>DEMO</span>
+        </div>
+        <div class='main'>
+            <div id='left' class='left'>
+                <div class='btn' onclick='openPage("ifr1.html",this,event)'>
+                    <span>* leftbtn1</span>
+                </div>
+                <div class='btn' onclick='openPage("ifr2.html",this,event)'>
+                    <span>* leftbtn2</span>
+            </div>
+
+            </div>
+            <div id='right' class='right'>
+                <div class='rightHeadSpace'>
+
+                </div>
+                <div id='target' class='target'>
+
+                </div>
+            </div>
+        </div>
+
+        <script>
+            openPage("ifr1.html", document.getElementsByClassName('btn')[0]);
+            function openPage(target, which, ev){
+                Array.prototype.forEach.call(document.getElementsByClassName('btn'),(v)=>{
+                    v.classList.remove('clicked');
+                })
+                which.classList.add('clicked')
+                var Rside = document.getElementById('target')
+                Rside.innerText=''
+                var iframe = document.createElement('iframe')
+                iframe.setAttribute('src',target)
+                Rside.appendChild(iframe)
+            }
+        </script>
+    </body>
+</html>
