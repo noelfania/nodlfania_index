@@ -9,81 +9,85 @@
         html, body{
             height:100%;
         }
-            .mainhHeadSpace{
-                height:30px;
-                /* background-color: #71A064; */
-               /*  background-color:  #516B82; */
+        .body{
+            display:grid;
+            grid-template-columns: 200px auto;
+            grid-template-rows: 30px auto;
+            grid-template-areas: 
+                "abody abody"
+                "bbody cbody";
+        }
+            .body header{
+                grid-area: abody;
                 background-color:  #71A063;
                 color :#eee;
                 display:grid;
                 padding-left: 1%;
                 place-items: center start;
             }
-            .main{
-                height: 96%;
-                display:grid;
-                grid-template-columns: 200px auto;
-            }
-                .nav{
-                    padding-top: 50px;
-                    padding-left:15px;
-                    padding-right: 0%;
-                    background-color: #eee;
-                }   
-                    .btn{
-                        display:grid;
-                        place-items: center start;
-                        height:30px;
-                        background-color: #eee;
-                        padding-left:10%;
-                    }
-                    .btn:hover{
-                        background-color: white;
-                        cursor: pointer;
-                        border-radius: 5px 0 0 0;
-                    }
-                    .clicked {
-                        background-color: white;
-                        border-radius: 5px 0 0 0;
-                        /* border-left: thick solid #71A063; */
-                    }
-                .aside{
+            .body nav{
+                grid-area: bbody;
+                padding-top: 50px;
+                padding-left:15px;
+                background-color: #eee;
+            }   
+                .btn{
                     display:grid;
-                    grid-template-rows: 1% 99%;
+                    place-items: center start;
+                    height:30px;
+                    background-color: #eee;
+                    padding-left:10%;
                 }
-                    .contentsHeadSpace{
-                        background-color: #eee;
+                .btn:hover{
+                    background-color: white;
+                    cursor: pointer;
+                    border-radius: 5px 0 0 0;
+                }
+                .clicked {
+                    background-color: white;
+                    /* border-radius: 5px 0 0 0; */
+                    /* border-left: thick solid #71A063; */
+                }
+            .body section{
+                grid-area: cbody;
+                display:grid;
+                grid-template-rows: 5px auto;
+                grid-template-areas: 
+                    "asection"
+                    "bsection";
+            }
+                .body section header{
+                    grid-area: asection;
+                    background-color: #eee;
+                }
+                .body section main{
+                    grid-area: bsection;
+                }
+                    iframe{
+                        height:100%;
+                        width:98%;
+                        padding-left: 2%;
+                        border:none;
                     }
-                    .contents{
-                        color:blue;
-                    }
-                        iframe{
-                            height:100%;
-                            width: 100%;
-                            padding-left: 10px;
-                            border:none;
-                        }
     </style>
     </head>
-    <body>
-        <header class='mainhHeadSpace'>
+    <body class='body'>
+        <header>
             <span>DEMO [갱신일 : 2021-02-07]</span>
         </header>
-        <main class='main'>
-            <nav id='nav' class='nav'>
-                <div class='btn' onclick='openPage("ifr1.html",this,event)'>
-                    <span>* leftbtn1</span>
-                </div>
-                <div class='btn' onclick='openPage("ifr2.html",this,event)'>
-                    <span>* leftbtn2</span>
-                </div>
-            </nav>
+        <nav>
+            <div class='btn' onclick='openPage("ifr1.html",this,event)'>
+                <span>* leftbtn1</span>
+            </div>
+            <div class='btn' onclick='openPage("ifr2.html",this,event)'>
+                <span>* leftbtn2</span>
+            </div>
+        </nav>
 
-            <aside id='aside' class='aside'>
-                <header class='contentsHeadSpace'></header>
-                <main id='contents' class='contents'></main>
-            </aside>
-        </main>
+        <section>
+            <header></header>
+            <main id='contents'></main>
+        </section>
 
         <script>
             openPage("ifr1.html", document.getElementsByClassName('btn')[0]);
