@@ -2,87 +2,9 @@
 <html>
     <head>
         <meta name="viewport" content="initial-scale=1.0">
-    <style>
-        *{
-            margin:0;
-            font-family: monospace;
-        }
-        html, body{
-            height:100%;
-        }
-        body{
-            display:grid;
-            grid-template-columns: minmax(120px,130px) auto;
-            grid-template-rows: 20px auto;
-            grid-template-areas: 
-                "body-A body-A"
-                "body-B body-C";
-        }
-            body header{
-                grid-area: body-A;
-                background-color: black;
-                color :  lightseagreen;
-                display:grid;
-                padding-left: 1%;
-                place-items: center start;
-                font-size: small;
-            }
-            body nav{
-                grid-area: body-B;
-                padding-top: 50px;
-                padding-left:15px;
-                background-color: #eee;
-            }   
-                nav .category{
-                    display:grid;
-                    place-items: end start;
-                    height:30px;
-                    margin-top: 10px;
-                    font-size: small;
-                    padding-left:10%;
-                    font-weight: bold;
-                    color : grey;
-                }
-                nav .nav-btn{
-                    display:grid;
-                    place-items: center start;
-                    height:30px;
-                    background-color: #eee;
-                    padding-left:10%;
-                    padding-right:10%;
-                }
-                nav .nav-btn:hover{
-                    background-color: white;
-                    cursor: pointer;
-                }
-                nav .nav-btn-clicked {
-                    background-color: white;
-                    font-weight: bold;
-                    color:lightseagreen;
-                    border-bottom: thin solid lightseagreen;
-                }
-            body section{
-                grid-area: body-C;
-                display:grid;
-                grid-template-rows: 8px auto;
-                grid-template-areas: 
-                    "section-A"
-                    "section-B";
-            }
-                body section header{
-                    grid-area: section-A;
-                    background-color: #eee;
-                }
-                body section main{
-                    grid-area: section-B;
-                }
-                    body section main iframe{
-                        height:100%;
-                        width:98%;
-                        padding-left: 1%;
-                        border:none;
-                    }
-    </style>
+        <link rel="icon" type="image/jpg" href="favicon.jpg">
+        <link rel="stylesheet"" href="./index.css">
+        <script src="./index.js"></script>
     </head>
     <body>
         <header>
@@ -131,21 +53,5 @@
             <main id='main-content'></main>
         </section>
 
-        <script>
-            openPage("ifr1.html", document.getElementsByClassName('nav-btn')[0]);
-
-            function openPage(url, btnArea, event){
-                event ?  event.preventDefault() : null ;
-                Array.prototype.forEach.call(document.getElementsByClassName('nav-btn'),(v)=>{
-                    v.classList.remove('nav-btn-clicked');
-                })
-                btnArea.classList.add('nav-btn-clicked');
-                var mainContent = document.getElementById('main-content');
-                mainContent.innerText='';
-                var iframe = document.createElement('iframe');
-                iframe.setAttribute('src',url);
-                mainContent.appendChild(iframe);
-            }
-        </script>
     </body>
 </html>
