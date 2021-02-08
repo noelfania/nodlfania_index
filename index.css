@@ -5,6 +5,7 @@
 html, body{
     height:100%;
 }
+
 body{
     display:grid;
     grid-template-columns: minmax(120px,130px) auto;
@@ -22,6 +23,11 @@ body{
         place-items: center start;
         font-size: small;
     }
+    @media screen and (max-width: 600px){
+    body header{
+        background-color: #71A063;
+    }
+}
     body nav{
         grid-area: body-B;
         padding-top: 50px;
