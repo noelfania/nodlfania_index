@@ -5,48 +5,69 @@
     <style>
         *{
             margin:0;
+            font-family: monospace;
         }
         html, body{
             height:100%;
         }
         .body{
             display:grid;
-            grid-template-columns: 200px auto;
-            grid-template-rows: 30px auto;
+            grid-template-columns: minmax(120px,130px) auto;
+            grid-template-rows: 20px auto;
             grid-template-areas: 
                 "abody abody"
                 "bbody cbody";
         }
             .body header{
                 grid-area: abody;
-                background-color:  #71A063;
-                color :#eee;
+                /* background-color:  #71A063; */
+                background-color: black;
+                color :  lightseagreen;
                 display:grid;
                 padding-left: 1%;
                 place-items: center start;
+                font-size: small;
             }
             .body nav{
                 grid-area: bbody;
                 padding-top: 50px;
                 padding-left:15px;
+              /*   padding-right:15px; */
                 background-color: #eee;
+                
             }   
+                
+                .category{
+                    display:grid;
+                    place-items: end start;
+                    height:30px;
+                    /* background-color: #516B82; */
+                    margin-top: 10px;
+                    border-radius: 0px 0 0 0;
+                    font-size: small;
+                    padding-left:10%;
+                    font-weight: bold;
+                    color : grey;
+                }
+                
                 .btn{
                     display:grid;
                     place-items: center start;
                     height:30px;
                     background-color: #eee;
                     padding-left:10%;
+                    padding-right:10%;
                 }
                 .btn:hover{
                     background-color: white;
                     cursor: pointer;
-                    border-radius: 5px 0 0 0;
                 }
                 .clicked {
                     background-color: white;
+                    font-weight: bold;
                     /* border-radius: 5px 0 0 0; */
-                    /* border-left: thick solid #71A063; */
+                    color:lightseagreen;
+                    border-bottom: thin solid lightseagreen;
                 }
             .body section{
                 grid-area: cbody;
@@ -66,22 +87,51 @@
                     iframe{
                         height:100%;
                         width:98%;
-                        padding-left: 2%;
+                        padding-left: 1%;
                         border:none;
                     }
     </style>
     </head>
     <body class='body'>
         <header>
-            <span>DEMO [갱신일 : 2021-02-07]</span>
+            <span>갱신일 : 2021-02-08</span>
         </header>
         <nav>
-            <div class='btn' onclick='openPage("ifr1.html",this,event)'>
-                <span>* leftbtn1</span>
-            </div>
-            <div class='btn' onclick='openPage("ifr2.html",this,event)'>
-                <span>* leftbtn2</span>
-            </div>
+            <div class='category'>'Category1</div>
+                <div class='btn' onclick='openPage("ifr1.html",this,event)'>
+                    <span>navbtn1-1</span>
+                </div>
+                <div class='btn' onclick='openPage("ifr2.html",this,event)'>
+                    <span>navbtn1-2</span>
+                </div>
+
+            <div class='category'>'Category2</div>
+                <div class='btn' onclick='openPage("ifr2.html",this,event)'>
+                    <span>navbtn2-1</span>
+                </div>
+                <div class='btn' onclick='openPage("ifr2.html",this,event)'>
+                    <span>navbtn2-2</span>
+                </div>
+                <div class='btn' onclick='openPage("ifr2.html",this,event)'>
+                    <span>navbtn2-3</span>
+                </div>
+                <div class='btn' onclick='openPage("ifr2.html",this,event)'>
+                    <span>navbtn2-4</span>
+                </div>
+            
+            <div class='category'>'Category3</div>
+                <div class='btn' onclick='openPage("ifr2.html",this,event)'>
+                    <span>navbtn2-1</span>
+                </div>
+                <div class='btn' onclick='openPage("ifr2.html",this,event)'>
+                    <span>navbtn2-2</span>
+                </div>
+                <div class='btn' onclick='openPage("ifr2.html",this,event)'>
+                    <span>navbtn2-3</span>
+                </div>
+                <div class='btn' onclick='openPage("ifr2.html",this,event)'>
+                    <span>navbtn2-4</span>
+                </div>
         </nav>
 
         <section>
