@@ -1,0 +1,22 @@
+{
+  "name": "noelfania.github.io",
+  "version": "0.1.0",
+  "description": "Figure out efficient UX",
+  "main": "index.js",
+  "scripts": {
+    "test": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noelfania/noelfania.github.io.git"
+  },
+  "keywords": [
+    "UX"
+  ],
+  "author": "Noelfania",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/noelfania/noelfania.github.io/issues"
+  },
+  "homepage": "https://github.com/noelfania/noelfania.github.io#readme"
+}

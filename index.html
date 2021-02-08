@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="initial-scale=1.0">
     <style>
         *{
             margin:0;
@@ -10,17 +10,16 @@
         html, body{
             height:100%;
         }
-        .body{
+        body{
             display:grid;
             grid-template-columns: minmax(120px,130px) auto;
             grid-template-rows: 20px auto;
             grid-template-areas: 
-                "abody abody"
-                "bbody cbody";
+                "body-A body-A"
+                "body-B body-C";
         }
-            .body header{
-                grid-area: abody;
-                /* background-color:  #71A063; */
+            body header{
+                grid-area: body-A;
                 background-color: black;
                 color :  lightseagreen;
                 display:grid;
@@ -28,29 +27,23 @@
                 place-items: center start;
                 font-size: small;
             }
-            .body nav{
-                grid-area: bbody;
+            body nav{
+                grid-area: body-B;
                 padding-top: 50px;
                 padding-left:15px;
-              /*   padding-right:15px; */
                 background-color: #eee;
-                
             }   
-                
-                .category{
+                nav .category{
                     display:grid;
                     place-items: end start;
                     height:30px;
-                    /* background-color: #516B82; */
                     margin-top: 10px;
-                    border-radius: 0px 0 0 0;
                     font-size: small;
                     padding-left:10%;
                     font-weight: bold;
                     color : grey;
                 }
-                
-                .btn{
+                nav .nav-btn{
                     display:grid;
                     place-items: center start;
                     height:30px;
@@ -58,33 +51,32 @@
                     padding-left:10%;
                     padding-right:10%;
                 }
-                .btn:hover{
+                nav .nav-btn:hover{
                     background-color: white;
                     cursor: pointer;
                 }
-                .clicked {
+                nav .nav-btn-clicked {
                     background-color: white;
                     font-weight: bold;
-                    /* border-radius: 5px 0 0 0; */
                     color:lightseagreen;
                     border-bottom: thin solid lightseagreen;
                 }
-            .body section{
-                grid-area: cbody;
+            body section{
+                grid-area: body-C;
                 display:grid;
-                grid-template-rows: 5px auto;
+                grid-template-rows: 8px auto;
                 grid-template-areas: 
-                    "asection"
-                    "bsection";
+                    "section-A"
+                    "section-B";
             }
-                .body section header{
-                    grid-area: asection;
+                body section header{
+                    grid-area: section-A;
                     background-color: #eee;
                 }
-                .body section main{
-                    grid-area: bsection;
+                body section main{
+                    grid-area: section-B;
                 }
-                    iframe{
+                    body section main iframe{
                         height:100%;
                         width:98%;
                         padding-left: 1%;
@@ -92,65 +84,67 @@
                     }
     </style>
     </head>
-    <body class='body'>
+    <body>
         <header>
             <span>갱신일 : 2021-02-08</span>
         </header>
         <nav>
             <div class='category'>'Category1</div>
-                <div class='btn' onclick='openPage("ifr1.html",this,event)'>
-                    <span>navbtn1-1</span>
-                </div>
-                <div class='btn' onclick='openPage("ifr2.html",this,event)'>
-                    <span>navbtn1-2</span>
-                </div>
+            <div class='nav-btn' onclick='openPage("ifr1.html",this,event)'>
+                <span>navbtn1-1</span>
+            </div>
+            <div class='nav-btn' onclick='openPage("ifr2.html",this,event)'>
+                <span>navbtn1-2</span>
+            </div>
 
             <div class='category'>'Category2</div>
-                <div class='btn' onclick='openPage("ifr2.html",this,event)'>
-                    <span>navbtn2-1</span>
-                </div>
-                <div class='btn' onclick='openPage("ifr2.html",this,event)'>
-                    <span>navbtn2-2</span>
-                </div>
-                <div class='btn' onclick='openPage("ifr2.html",this,event)'>
-                    <span>navbtn2-3</span>
-                </div>
-                <div class='btn' onclick='openPage("ifr2.html",this,event)'>
-                    <span>navbtn2-4</span>
-                </div>
+            <div class='nav-btn' onclick='openPage("ifr2.html",this,event)'>
+                <span>navbtn2-1</span>
+            </div>
+            <div class='nav-btn' onclick='openPage("ifr2.html",this,event)'>
+                <span>navbtn2-2</span>
+            </div>
+            <div class='nav-btn' onclick='openPage("ifr2.html",this,event)'>
+                <span>navbtn2-3</span>
+            </div>
+            <div class='nav-btn' onclick='openPage("ifr2.html",this,event)'>
+                <span>navbtn2-4</span>
+            </div>
             
             <div class='category'>'Category3</div>
-                <div class='btn' onclick='openPage("ifr2.html",this,event)'>
-                    <span>navbtn2-1</span>
-                </div>
-                <div class='btn' onclick='openPage("ifr2.html",this,event)'>
-                    <span>navbtn2-2</span>
-                </div>
-                <div class='btn' onclick='openPage("ifr2.html",this,event)'>
-                    <span>navbtn2-3</span>
-                </div>
-                <div class='btn' onclick='openPage("ifr2.html",this,event)'>
-                    <span>navbtn2-4</span>
-                </div>
+            <div class='nav-btn' onclick='openPage("ifr2.html",this,event)'>
+                <span>navbtn2-1</span>
+            </div>
+            <div class='nav-btn' onclick='openPage("ifr2.html",this,event)'>
+                <span>navbtn2-2</span>
+            </div>
+            <div class='nav-btn' onclick='openPage("ifr2.html",this,event)'>
+                <span>navbtn2-3</span>
+            </div>
+            <div class='nav-btn' onclick='openPage("ifr2.html",this,event)'>
+                <span>navbtn2-4</span>
+            </div>
         </nav>
 
         <section>
             <header></header>
-            <main id='contents'></main>
+            <main id='main-content'></main>
         </section>
 
         <script>
-            openPage("ifr1.html", document.getElementsByClassName('btn')[0]);
-            function openPage(target, which, ev){
-                Array.prototype.forEach.call(document.getElementsByClassName('btn'),(v)=>{
-                    v.classList.remove('clicked');
+            openPage("ifr1.html", document.getElementsByClassName('nav-btn')[0]);
+
+            function openPage(url, btnArea, event){
+                event ?  event.preventDefault() : null ;
+                Array.prototype.forEach.call(document.getElementsByClassName('nav-btn'),(v)=>{
+                    v.classList.remove('nav-btn-clicked');
                 })
-                which.classList.add('clicked')
-                var Rside = document.getElementById('contents')
-                Rside.innerText=''
-                var iframe = document.createElement('iframe')
-                iframe.setAttribute('src',target)
-                Rside.appendChild(iframe)
+                btnArea.classList.add('nav-btn-clicked');
+                var mainContent = document.getElementById('main-content');
+                mainContent.innerText='';
+                var iframe = document.createElement('iframe');
+                iframe.setAttribute('src',url);
+                mainContent.appendChild(iframe);
             }
         </script>
     </body>
