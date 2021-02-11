@@ -5,4 +5,5 @@ to  get into My GitHubPages.
 
 <br>
 
+* `2021-02-10` : Responsive Web 대응 + Layout작성 객체화 + 유용한링크추가
 * `2021-02-07` : 기본적인 와꾸 만들어보기 (CSR) 10분컷
