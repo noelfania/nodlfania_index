@@ -1,6 +1,7 @@
 'use strict';
 const log = console.log;
 
+// only navigate own html
 const NavBtnUrl =['ifr1','ifr2','ifr3','ifr4','ifr5','ifr6','ifr7','ifr7','ifr8','ifr9','ifr10',]
 
 const Index = {
