@@ -126,14 +126,19 @@ body{
             nav>.category>.title{
                 padding-top:0px;
             }
-            nav>.category>.nav-btn, nav>.category>.title{
+            nav>.category>.title:hover{
+                cursor: pointer;
+            }
+                .nav-btn-clickedForMobile {
+                    background-color: white;
+                }
+            nav>.category>.title ,nav>.category>.nav-btn{
                 width:100px;
                 display:grid;
                 place-items: center;
                 height:30px;
                 padding-left:0px;
                 z-index: 99;
-
             }
             nav>.category>.nav-btn{
                 display: none;
@@ -142,9 +147,9 @@ body{
                 border-right: thin solid lightgray;
                 border-bottom: thin solid lightgray;
             }
-            nav>.category:hover .nav-btn{
+           .title_clicked_and_nav-btn_visible{
                 width:100px;
-                display:grid;
+                display:grid !important;
                 place-items: center;
                 height:30px;
                 padding-left:0px;
@@ -153,17 +158,11 @@ body{
                 background-color: rgb(25, 26, 126);
                 cursor: pointer;
             }
-            nav>.category>.title:hover{
-                cursor: pointer;
-            }
-            .nav-btn-clickedForMobile {
-                background-color: white;
-            }
-            .nav-btn-clicked {
-                font-weight: bold;
-                color:red;
-                background-color: white !important;
-            }
+                .nav-btn-clicked {
+                    font-weight: bold;
+                    color:red;
+                    background-color: white !important;
+                }
         body>section{
             grid-area: body-C;
             display:grid;
