@@ -7,13 +7,13 @@ class Layout{
     }
     
     getfigureTag(){
-        var figureTag = document.createElement('figure');
-            figureTag.setAttribute('style', 'border : thin solid black; overflow-wrap: break-word; max-width:70%;');
+        var figureTag = document.createElement('article');
+            figureTag.setAttribute('style', 'border : thin solid black; overflow-wrap: break-word; width:400px;');
         var itemTag = document.createElement('pre');
-            itemTag.innerText = this.item;
+            itemTag.innerHTML = this.item;
             itemTag.setAttribute('style', 'border-bottom : thin solid black; white-space: break-spaces;margin: 0px;padding: 2%;');
         var figcaptionTag = document.createElement('pre');
-            figcaptionTag.innerText = this.figure;
+            figcaptionTag.innerHTML = this.figure;
             figcaptionTag.setAttribute('style', 'border-bottom : thin solid black; white-space: break-spaces;margin: 0px;padding: 2%;');
           
             figureTag.appendChild(itemTag);

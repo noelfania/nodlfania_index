@@ -2,18 +2,66 @@
 const log = console.log;
 
 // only navigate own html
-const NavBtnUrl =['ifr1','ifr2','ifr3','ifr4','ifr5','ifr6','ifr7','ifr7','ifr8','ifr9','ifr10',]
+const NavBtnUrl = new Map([
+    ['Category1',
+        [
+        'test$nav1_1.html',
+        'LINK$nav1_2.html',
+        ]
+    ],
+    ['Script',
+        [
+        'MS/Batch$nav2_1.html',
+        'UNIX/Bash$nav2_2.html',
+        ]
+    ],
+    ['Category3',
+        [    
+        'nav3_1$nav3_1.html',
+        'nav3_2$nav3_2.html',
+        ]
+    ],
+])
 
 const Index = {
     init(){
         log('DOMContentLoaded :: ', 'app.js invoked');
         //window.Index = Index;
 
+        var navArea = document.getElementById('navArea');
+        //navArea.appendChild();
+        var NavBtnUrls=[];
+        NavBtnUrl.forEach((v,i,a)=>{
+            NavBtnUrls.push(...v)
+           // console.log(NavBtnUrls)
+            var div = document.createElement('div');
+            div.setAttribute('class','category');
+            var span = document.createElement('span');
+            span.setAttribute('class','title');
+            span.innerText=i;
+           // console.log(i)
+
+            div.appendChild(span);
+
+            v.forEach((vArray,i,a)=>{
+                var divInner = document.createElement('div');
+                divInner.setAttribute('class','nav-btn');
+                var spanInner = document.createElement('span');
+                spanInner.innerText=vArray.split('$')[0];
+                //console.log(vArray.split('$')[0])
+                divInner.appendChild(spanInner)
+                div.appendChild(divInner);
+            })
+            navArea.appendChild(div);
+        })
+
+
         // link nav-btn with onclick
         var arrNavBtn = document.getElementsByClassName('nav-btn')
         Array.from(arrNavBtn).forEach((navBtn,i)=>{
             navBtn.addEventListener('click',function (event){
-                let url = `${NavBtnUrl[i]}.html`;
+                let url = `${NavBtnUrls[i].split('$')[1]}`;
+                console.log(url)
                 let btnArea = document.getElementsByClassName('nav-btn')[i];
                 return Index.openPage.call(null, url, btnArea, event);
             })
@@ -27,7 +75,9 @@ const Index = {
             })
         })
 
-        Index.openPage(`${NavBtnUrl[0]}.html`, document.getElementsByClassName('nav-btn')[0]);
+        //open initial page
+      //  arrNavBtn[0].click();
+        arrNavBtn[2].click();
     },
     clickTitleForMobile(event){
         //initiate all class

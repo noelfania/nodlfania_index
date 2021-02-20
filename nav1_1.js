@@ -7,14 +7,19 @@ document.addEventListener('DOMContentLoaded', ()=>{
 // 1
 
 var test1 = new Layout(
-// item area
-`1.itemitemitemitemitemitemitemitemitemitemitemitemitemitemi
-2.temitemitemitemitemitemitemitemitemitemitemitem
-3.itemitemitemitemitemitemitemitemitemitemitemitemitemitemitem`
-,
-// caption area 
-`1.figure : caption_caption_caption_caption_caption_caption_caption_caption_caption
-_caption_caption_caption_caption`
+    // item area
+    `1.itemitemitemitemitemitemitemitemitemitemitemitemitemitemi`
+   +`<br>`
+   +`2.temitemitemitemitemitemitemitemitemitemitemitem`
+   +`<br>`
+   +`3.itemitemitemitemitemitemitemitemitemitemitemitemitemitemitem`
+    ,
+    // caption area 
+    `1.figure : caption_caption_caption_caption_caption_caption`
+    +`<br>`
+    +`_caption_caption_caption`
+    +`<br>`
+    +`_caption_caption_caption_caption`
 )
     var testhtml1 = test1.getfigureTag();
 
