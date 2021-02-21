@@ -28,6 +28,32 @@ const Index = {
         log('DOMContentLoaded :: ', 'app.js invoked');
         //window.Index = Index;
 
+        // Parse From otherSites
+        {
+            var uri =''
+            //+'https://cors-anywhere.herokuapp.com/' //TEST
+            +'https://developer.mozilla.org/en-US/docs/Web/API/Headers';
+            var h = new Headers()
+            h.append('Access-Control-Allow-Origin','*')
+            
+            var req=new Request(uri,{
+                headers:h,
+                method:'get',
+                mode:'cors'
+                
+            })
+            fetch(req)
+            .then((response)=>{
+                return (response.text())
+            })
+            .then((res)=>{
+                //log(res)
+                var s = new DOMParser().parseFromString(res,'text/html')
+                log(s)
+            })
+
+        }
+
         var navArea = document.getElementById('navArea');
         //navArea.appendChild();
         var NavBtnUrls=[];
