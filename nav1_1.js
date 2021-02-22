@@ -1,4 +1,4 @@
-import {Layout} from "./jsController/layout.js";
+import {Layout, Title$Figure} from "./jsController/layout.js";
 
 document.addEventListener('DOMContentLoaded', ()=>{
     const mainArea = document.getElementById('main');
@@ -26,43 +26,8 @@ var test1 = new Layout(
     mainArea.appendChild (testhtml1);
 
 
-
-
-// 2
-var test2 = new Layout(
-// item area
-`1.itemitemitemitemitemitemitemitemitemitemitemitemitemitemi
-2.temitemitemitemitemitemitemitemitemitemitemitem
-3.itemitemitemitemitemitemitemitemitemitemitemitemitemitemitem`
-,
-// caption area 
-`2.figure : caption_caption_caption_caption_caption_caption_caption_caption_caption
-_caption_caption_caption_caption`
-)
-        var testhtml2 = test2.getfigureTag();
-    
-        mainArea.appendChild (testhtml2);
-    
-
-// 3
-var test3 = new Layout(
-// item area
-`1.itemitemitemitemitemitemitemitemitemitemitemitemitemitemi
-2.temitemitemitemitemitemitemitemitemitemitemitem
-3.itemitemitemitemitemitemitemitemitemitemitemitemitemitemitem`
-,
-// caption area 
-`3.figure : caption_caption_caption_caption_caption_caption_caption_caption_caption
-_caption_caption_caption_caption`
-)
-var testhtml3 = test3.getfigureTag();
-
-mainArea.appendChild (testhtml3);
-
-
-
-
-
-
+    var title = 'title';
+    var figure = '1.figure'
+    mainArea.appendChild( new Title$Figure(title, figure).getTitle$FigureTag() );
 
 });

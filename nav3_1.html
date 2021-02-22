@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        </style>
+    </head>
+    <body>
+        <h2>Try. Parsing otherSites From Client Side</h2>
+        <h3>↓↓ Due to CORS policy, this try will be fail </h3>
+        <pre id="parsingResult"></pre>
+    </body>
+    <script type="module">
+        var resultArea = document.getElementById('parsingResult')
+
+        // Parse otherSites From ClientSide 
+        {
+            var uri =''
+            //+'https://cors-anywhere.herokuapp.com/' //TEST
+            +'https://developer.mozilla.org/en-US/docs/Web/API/Headers';
+
+            var headers = new Headers()
+            headers.append('Access-Control-Allow-Origin','*')
+            
+            var req=new Request(uri,{
+                headers:headers,
+                method:'get',
+                mode:'cors'
+                
+            })
+            fetch(req)
+            .then((response)=>{
+                return (response.text())
+            })
+            .then((res)=>{
+
+                var parsedResponse = new DOMParser().parseFromString(res,'text/html')
+                
+                resultArea.innerText = parsedResponse;
+            })
+            .catch((error)=>{
+                console.dir(error);
+                resultArea.innerText = error;
+            })
+
+        }
+    </script>
+</html>

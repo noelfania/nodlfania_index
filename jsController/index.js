@@ -3,22 +3,23 @@ const log = console.log;
 
 // only navigate own html
 const NavBtnUrl = new Map([
-    ['Category1',
-        [
-        'test$nav1_1.html',
-        'LINK$nav1_2.html',
-        ]
-    ],
-    ['Script',
+
+    ['Script👍',
         [
         'MS/Batch$nav2_1.html',
         'UNIX/Bash$nav2_2.html',
         ]
     ],
-    ['Category3',
+    ['TestCase',
         [    
-        'nav3_1$nav3_1.html',
+        'CORS$nav3_1.html',
         'nav3_2$nav3_2.html',
+        ]
+    ],
+    ['ETC',
+        [
+        'LayoutTest$nav1_1.html',
+        'BookMarks$nav1_2.html',
         ]
     ],
 ])
@@ -27,32 +28,6 @@ const Index = {
     init(){
         log('DOMContentLoaded :: ', 'app.js invoked');
         //window.Index = Index;
-
-        // Parse From otherSites
-        {
-            var uri =''
-            //+'https://cors-anywhere.herokuapp.com/' //TEST
-            +'https://developer.mozilla.org/en-US/docs/Web/API/Headers';
-            var h = new Headers()
-            h.append('Access-Control-Allow-Origin','*')
-            
-            var req=new Request(uri,{
-                headers:h,
-                method:'get',
-                mode:'cors'
-                
-            })
-            fetch(req)
-            .then((response)=>{
-                return (response.text())
-            })
-            .then((res)=>{
-                //log(res)
-                var s = new DOMParser().parseFromString(res,'text/html')
-                log(s)
-            })
-
-        }
 
         var navArea = document.getElementById('navArea');
         //navArea.appendChild();
@@ -87,7 +62,7 @@ const Index = {
         Array.from(arrNavBtn).forEach((navBtn,i)=>{
             navBtn.addEventListener('click',function (event){
                 let url = `${NavBtnUrls[i].split('$')[1]}`;
-                console.log(url)
+               // console.log(url)
                 let btnArea = document.getElementsByClassName('nav-btn')[i];
                 return Index.openPage.call(null, url, btnArea, event);
             })

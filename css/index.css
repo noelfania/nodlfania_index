@@ -9,7 +9,7 @@ html, body{
 body{
     display:grid;
     grid-template-columns: minmax(120px,130px) auto;
-    grid-template-rows: 20px auto;
+    grid-template-rows: 17px auto;
     grid-template-areas: 
         "body-A body-A"
         "body-B body-C";
@@ -26,7 +26,7 @@ body{
  
     body>nav{
         grid-area: body-B;
-        padding-top: 50px;
+        padding-top: 30px;
         padding-left:15px;
         background-color: #eee;
     }   
@@ -43,10 +43,12 @@ body{
             padding-top:20px;
             font-weight: bold;
             padding-left: 10px;
+            color:black
         }
         nav>.category>.nav-btn{
             display:grid;
-            place-items: center;
+            place-items: center start;
+            padding-left:20px;
             height:30px;
             border-bottom: thin solid rgb(233, 231, 231);
         }
@@ -142,6 +144,7 @@ body{
             }
             nav>.category>.nav-btn{
                 display: none;
+                
                 background-color: #eee;
                 border-left: thin solid lightgray;
                 border-right: thin solid lightgray;
