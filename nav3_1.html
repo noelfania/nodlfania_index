@@ -12,6 +12,7 @@
            target="_blank">
             HowSome Request from Client is blocked? > what origin is > get to know How Request works
         </a>
+        //아더럽게복잡하네
     </body>
     <script type="module">
         var resultArea = document.getElementById('parsingResult')
@@ -23,7 +24,8 @@
             +'https://developer.mozilla.org/en-US/docs/Web/API/Headers';
 
             var headers = new Headers()
-            headers.append('Access-Control-Allow-Origin','*')
+            headers.append('Access-Control-Allow-Origin','http://127.0.0.1:5500/')
+            headers.append('Content-Type','text/plain')
             
             var req=new Request(uri,{
                 headers:headers,
