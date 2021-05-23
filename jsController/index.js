@@ -13,7 +13,7 @@ const NavBtnUrl = new Map([
     ['TestCase',
         [    
         'CORS$nav3_1.html',
-        'nav3_2$nav3_2.html',
+        'Cordova$nav3_2.html',
         ]
     ],
     ['ETC',
@@ -78,7 +78,7 @@ const Index = {
 
         //open initial page
       //  arrNavBtn[0].click();
-        arrNavBtn[2].click();
+        arrNavBtn[3].click();
     },
     clickTitleForMobile(event){
         //initiate all class

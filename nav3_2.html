@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        </style>
+    </head>
+    <body>
+        <h2>:: Build `Cordova` Application for Android:: </h2>
+        <h3>: Precondition :</h3>
+            <ul>1.Install JDK1.8(JavaDevelopKit1.8=java8)
+                <dd>Cordova requires jdk1.8 not over 1.8</dd>
+                <dd>cause Android doesn't use Oracle-Java</dd>
+                <ul>set windows Environment Variables
+                    <dd>set JAVA_HOME : path where jdk is</dd>
+                    <dd>set Path : %JAVA_HOME%\bin</dd>
+                </ul>
+                <ul>check java on terminal(cmd)
+                    <ul>java -version</ul>
+                </ul>
+            </ul>
+
+            <ul>2.Install NodeJs
+                <ul>check node and npm on terminal(cmd)
+                    <ul>node -v</ul>
+                    <ul>npm -v</ul>
+                </ul>
+            </ul>
+
+            <ul>3.Install Cordova on terminal(cmd)
+                <ul>npm install -g cordova  (globally)</ul>
+                <ul>check cordova  on terminal(cmd)
+                    <ul>cordova -v</ul>
+                </ul>
+            </ul>
+
+            <ul>4.Install AndroidSDK
+                <ul>AndroidSDK has bundle to build for Android devices</ul>
+                <ul>set windows Environment Variables (recommand)
+                    <ul>set ANDROID_SDK_ROOT : C:\Users\{User}\AppData\Local\Android\Sdk</ul>
+                    <ul>set Path : %ANDROID_SDK_ROOT%\platform-tools</ul>
+                    <ul>set Path : %ANDROID_SDK_ROOT%\build-tools</ul>
+                    <ul>set Path : %ANDROID_SDK_ROOT%\tools</ul>
+                </ul>
+                <ul>set windows Environment Variables (deprecated)
+                    <ul>set ANDROID_HOME : C:\Users\{User}\AppData\Local\Android\Sdk</ul>
+                    <ul>set Path : %ANDROID_HOME%\platform-tools</ul>
+                    <ul>set Path : %ANDROID_HOME%\build-tools</ul>
+                    <ul>set Path : %ANDROID_HOME%\tools</ul>
+                </ul>
+            </ul>
+            <ul>5.Install Gradle
+                <ul>Gradle manages dependencies when build project</ul>
+                <ul>set windows Environment Variables
+                    <ul>set GRADLE_HOME : path where gradle is</ul>
+                    <ul>set Path : %GRADLE_HOME%\bin</ul>
+                    <ul>check Gradle  on terminal(cmd)
+                        <ul>gradle -v</ul>
+                    </ul>
+                </ul>
+            </ul>
+        <h3>: Create cordova Project :</h3>
+        <ul>Create cordova Project on terminal(cmd)
+            <ul>cordova create {ProjectFolder} {javaPackageName} {AppName}</ul>
+        </ul>
+        <h3>: Build cordova Project :</h3>
+        <ul>Build cordova Project on terminal(cmd)
+            <ol>
+                <li>check devices version and sdk version</li>
+                <li>get into cordova Project Folder you made</li>
+                <li>cordova platform add android</li>
+                <li>cordova build android</li>
+            </ol>
+
+        </ul>
+        
+    </body>
+    <script type="module">
+
+    </script>
+</html>
