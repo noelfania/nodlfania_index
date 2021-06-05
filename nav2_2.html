@@ -1,44 +1,51 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <style>
-        </style>
-    </head>
-    <body>
-        <h2>UNIX/Bash</h2>
-<pre id='preArea'>
+
+<head>
+    <style>
+        * {
+            margin: 1;
+            font-family: Helvetica, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>UNIX/Bash</h2>
+    <pre id='preArea'>
 
 </pre>
-    </body>
-    <script type="module">
-        const preArea = document.getElementById('preArea')
-        import {Title$Figure} from '/jsController/layout.js'
+</body>
+<script type="module">
+    const preArea = document.getElementById('preArea')
+    import { Title$Figure } from '/jsController/layout.js'
 
-        var file = '/asset/BASH.sh';
-        fetch(file)
-        .then((res)=>{
+    var file = '/asset/BASH.sh';
+    fetch(file)
+        .then((res) => {
             return (res.text());
         })
-        .then((resText)=>{
+        .then((resText) => {
             // start to print Layout on DOM
-            
+
             var arrResText = resText.split('\n')
             var title;
-            var figure='';
-            for(let resLine of arrResText){
+            var figure = '';
+            for (let resLine of arrResText) {
                 //console.log(resLine);
                 var isTitle = resLine.match(/^##/g) ? true : false;
-                if(isTitle ){
-                    if(title) preArea.appendChild( new Title$Figure(title, figure).getTitle$FigureTag() );
-                    title= resLine;
-                    figure='';
-                }else{
-                    figure+='\n'+resLine;
+                if (isTitle) {
+                    if (title) preArea.appendChild(new Title$Figure(title, figure).getTitle$FigureTag());
+                    title = resLine;
+                    figure = '';
+                } else {
+                    figure += '\n' + resLine;
                 }
-                
+
             }
 
         })
-        
-    </script>
+
+</script>
+
 </html>

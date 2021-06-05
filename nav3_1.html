@@ -1,53 +1,114 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <style>
-        </style>
-    </head>
-    <body>
-        <h2>Try. Parsing otherSites From Client Side</h2>
-        <h3>↓↓ Due to CORS policy, this try will be fail </h3>
-        <pre id="parsingResult"></pre>
-        <a href="https://stackoverflow.com/questions/36958999/cors-is-it-a-client-side-thing-a-server-side-thing-or-a-transport-level-thin"
-           target="_blank">
-            HowSome Request from Client is blocked? > what origin is > get to know How Request works
-        </a>
-        //아더럽게복잡하네
-    </body>
-    <script type="module">
-        var resultArea = document.getElementById('parsingResult')
 
-        // Parse otherSites From ClientSide 
-        {
-            var uri =''
-            //+'https://cors-anywhere.herokuapp.com/' //TEST
-            +'https://developer.mozilla.org/en-US/docs/Web/API/Headers';
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 
-            var headers = new Headers()
-            headers.append('Access-Control-Allow-Origin','http://127.0.0.1:5500/')
-            headers.append('Content-Type','text/plain')
-            
-            var req=new Request(uri,{
-                headers:headers,
-                method:'get',
-                mode:'cors'
-                
-            })
-            fetch(req)
-            .then((response)=>{
-                return (response.text())
-            })
-            .then((res)=>{
-
-                var parsedResponse = new DOMParser().parseFromString(res,'text/html')
-                
-                resultArea.innerText = parsedResponse;
-            })
-            .catch((error)=>{
-                console.dir(error);
-                resultArea.innerText = error;
-            })
-
+        * {
+            padding-bottom: 2vh;
+            font-family: 'Lato', sans-serif;
+            font-size: small;
         }
-    </script>
+    </style>
+</head>
+
+<body>
+
+    <pre id="parsingResult"></pre>
+    <ul style="list-style-type:none;">
+        <li>
+            <a href="https://www.youtube.com/watch?v=IccWpyfiAqE" target="_blank">
+                <span>What is CORS? *Youtube</span>
+            </a>
+        </li>
+        <li>
+            <a href="http://client.cors-api.appspot.com/client" target="_blank">
+                <span>CORS Test Online</span>
+            </a>
+        </li>
+        <li>
+
+            <a href="https://www.youtube.com/watch?v=5dm9sQ8MLqs" target="_blank">
+                <span>How CORS works *Youtube</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://youtu.be/6QV_JpabO7g" target="_blank">
+                <span>SOP vs CORS  *Youtube</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://youtu.be/Q3YuKipzPbs" target="_blank">
+                <span>SameSite  *Youtube</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.youtube.com/watch?v=x_Z6iYY5ibc" target="_blank">
+                <span>Node API - CORS, what is it and how to use it  *Youtube</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.youtube.com/watch?v=zoSJ3bNGPp0" target="_blank">
+                <span>Parsing the Body & Handling CORS | Creating a REST API with Node.js  *Youtube</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.youtube.com/watch?v=woXBXJgGQvQ" target="_blank">
+                <span>CORS express.js tutorial | Cross-Origin Resource Sharing in Node  *Youtube</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://web.dev/cross-origin-resource-sharing/" target="_blank">
+                <span>web.dev/cross-origin-resource-sharing</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.sitepoint.com/working-around-origin-policy/" target="_blank">
+                <span>working-around-origin-policy</span>
+            </a>
+        </li>
+        <li>
+
+            <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS" target="_blank">
+                <span>MDN -CORS</span>
+            </a>
+        </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </ul>
+
+</body>
+
+<!-- <script>
+    var resultArea = document.getElementById('parsingResult') // Parse otherSites From ClientSide { 
+    var uri = 'https://developer.mozilla.org/en-US/docs/Web/API/Headers' 
+    
+    var headers = new Headers() 
+    headers.append('Access-Control-Allow-Origin','*')
+    headers.append('Content-Type', 'text/plain') 
+    var req = new Request(uri, { headers: headers, method: 'get', mode: 'cors' }) 
+    fetch(req) 
+    .then((response) => { return (response.text()) }) 
+    .then((res) => { 
+        var parsedResponse = new DOMParser().parseFromString(res,'text/html') 
+        resultArea.innerText = parsedResponse; 
+    }) 
+    .catch((error) => { console.dir(error); resultArea.innerText = error; })
+        
+</script> -->
+
 </html>

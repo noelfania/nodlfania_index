@@ -1,191 +1,194 @@
-*{
-    margin:0;
-    font-family: monospace;
-}
-html, body{
-    height:100%;
+* {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
 }
 
-body{
-    display:grid;
-    grid-template-columns: minmax(120px,130px) auto;
-    grid-template-rows: 17px auto;
-    grid-template-areas: 
-        "body-A body-A"
-        "body-B body-C";
+html,
+body {
+    height: 100%;
 }
-    body>header{
+
+.smallfont {
+    font-size: x-small;
+}
+
+body {
+    display: grid;
+    grid-template-columns: minmax(120px, 130px) auto;
+    grid-template-rows: 17px auto;
+    grid-template-areas: "body-A body-A" "body-B body-C";
+}
+
+body>header {
+    grid-area: body-A;
+    background-color: black;
+    color: lightseagreen;
+    display: grid;
+    padding-left: 1%;
+    place-items: center start;
+    font-size: small;
+}
+
+body>nav {
+    grid-area: body-B;
+    padding-top: 30px;
+    padding-left: 15px;
+    background-color: #eee;
+}
+
+nav>.category {
+    display: grid;
+    grid-template-rows: auto;
+    height: auto;
+    font-size: small;
+    padding-left: 10%;
+    font-weight: bold;
+    color: grey;
+}
+
+nav>.category>.title {
+    padding-top: 20px;
+    font-weight: bold;
+    padding-left: 10px;
+    color: black
+}
+
+nav>.category>.nav-btn {
+    display: grid;
+    place-items: center start;
+    padding-left: 20px;
+    height: 30px;
+    border-bottom: thin solid rgb(233, 231, 231);
+}
+
+nav>.category>.nav-btn:hover {
+    background-color: white;
+    cursor: pointer;
+}
+
+.nav-btn-clicked {
+    background-color: white;
+    font-weight: bold;
+    color: lightseagreen;
+    border-bottom: thin solid lightseagreen;
+}
+
+body>section {
+    grid-area: body-C;
+    display: grid;
+    grid-template-rows: 8px auto;
+    grid-template-areas: "section-A" "section-B";
+}
+
+body>section>header {
+    grid-area: section-A;
+    background-color: #eee;
+}
+
+body>section>main {
+    grid-area: section-B;
+}
+
+body>section>main>iframe {
+    height: 100%;
+    width: 98%;
+    padding-left: 1%;
+    border: none;
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 20px 30px auto;
+        grid-template-areas: "body-A" "body-B" "body-C";
+    }
+    body>header {
         grid-area: body-A;
-        background-color: black;
-        color :  lightseagreen;
-        display:grid;
+        background-color: greenyellow;
+        color: lightseagreen;
+        display: grid;
         padding-left: 1%;
         place-items: center start;
         font-size: small;
     }
- 
-    body>nav{
+    body>nav {
         grid-area: body-B;
-        padding-top: 30px;
-        padding-left:15px;
+        padding-left: 0px;
         background-color: #eee;
-    }   
-        nav>.category{
-            display:grid;
-            grid-template-rows: auto;
-            height:auto;
-            font-size: small;
-            padding-left:10%;
-            font-weight: bold;
-            color : grey;
-        }
-        nav>.category>.title{
-            padding-top:20px;
-            font-weight: bold;
-            padding-left: 10px;
-            color:black
-        }
-        nav>.category>.nav-btn{
-            display:grid;
-            place-items: center start;
-            padding-left:20px;
-            height:30px;
-            border-bottom: thin solid rgb(233, 231, 231);
-        }
-        nav>.category>.nav-btn:hover{
-            background-color: white;
-            cursor: pointer;
-        }
-        .nav-btn-clicked {
-            background-color: white;
-            font-weight: bold;
-            color:lightseagreen;
-            border-bottom: thin solid lightseagreen;
-        }
-    body>section{
+        padding-top: 0px;
+        display: flex;
+    }
+    nav>.category {
+        place-items: center;
+        flex: 1;
+        height: 30px;
+        margin-top: 0px;
+        font-size: small;
+        padding-left: 0px;
+        font-weight: bold;
+        color: grey;
+        display: flex;
+        flex-direction: column;
+    }
+    nav>.category>.title {
+        padding-top: 0px;
+    }
+    nav>.category>.title:hover {
+        cursor: pointer;
+    }
+    .nav-btn-clickedForMobile {
+        background-color: white;
+    }
+    nav>.category>.title,
+    nav>.category>.nav-btn {
+        width: 100px;
+        display: grid;
+        place-items: center;
+        height: 30px;
+        padding-left: 0px;
+        z-index: 99;
+    }
+    nav>.category>.nav-btn {
+        display: none;
+        background-color: #eee;
+        border-left: thin solid lightgray;
+        border-right: thin solid lightgray;
+        border-bottom: thin solid lightgray;
+    }
+    .title_clicked_and_nav-btn_visible {
+        width: 100px;
+        display: grid !important;
+        place-items: center;
+        height: 30px;
+        padding-left: 0px;
+    }
+    nav>.category>.nav-btn:hover {
+        background-color: rgb(25, 26, 126);
+        cursor: pointer;
+    }
+    .nav-btn-clicked {
+        font-weight: bold;
+        color: red;
+        background-color: white !important;
+    }
+    body>section {
         grid-area: body-C;
-        display:grid;
-        grid-template-rows: 8px auto;
-        grid-template-areas: 
-            "section-A"
-            "section-B";
+        display: grid;
+        grid-template-rows: 1px auto;
+        grid-template-areas: "section-A" "section-B";
     }
-        body>section>header{
-            grid-area: section-A;
-            background-color: #eee;
-        }
-        body>section>main{
-            grid-area: section-B;
-        }
-            body>section>main>iframe{
-                height:100%;
-                width:98%;
-                padding-left: 1%;
-                border:none;
-            }
-    
-@media screen and (max-width: 600px){
-    body{
-        display:grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 20px 30px auto;
-        grid-template-areas: 
-            "body-A"
-            "body-B"
-            "body-C";
+    body>section>header {
+        grid-area: section-A;
+        background-color: gray;
     }
-        body>header{
-            grid-area: body-A;
-            background-color: greenyellow;
-            color :  lightseagreen;
-            display:grid;
-            padding-left: 1%;
-            place-items: center start;
-            font-size: small;
-        }
-        body>nav{
-            grid-area: body-B;
-            padding-left:0px;
-            background-color: #eee;
-            padding-top: 0px;
-            display:flex;
-        }
-        nav>.category{
-                place-items: center;
-                flex:1;
-                
-                height:30px;
-                margin-top: 0px;
-                font-size: small;
-                padding-left:0px;
-                font-weight: bold;
-                color : grey;
-                
-                display:flex;
-                flex-direction: column;
-                
-            }
-            nav>.category>.title{
-                padding-top:0px;
-            }
-            nav>.category>.title:hover{
-                cursor: pointer;
-            }
-                .nav-btn-clickedForMobile {
-                    background-color: white;
-                }
-            nav>.category>.title ,nav>.category>.nav-btn{
-                width:100px;
-                display:grid;
-                place-items: center;
-                height:30px;
-                padding-left:0px;
-                z-index: 99;
-            }
-            nav>.category>.nav-btn{
-                display: none;
-                
-                background-color: #eee;
-                border-left: thin solid lightgray;
-                border-right: thin solid lightgray;
-                border-bottom: thin solid lightgray;
-            }
-           .title_clicked_and_nav-btn_visible{
-                width:100px;
-                display:grid !important;
-                place-items: center;
-                height:30px;
-                padding-left:0px;
-            }
-            nav>.category>.nav-btn:hover{
-                background-color: rgb(25, 26, 126);
-                cursor: pointer;
-            }
-                .nav-btn-clicked {
-                    font-weight: bold;
-                    color:red;
-                    background-color: white !important;
-                }
-        body>section{
-            grid-area: body-C;
-            display:grid;
-            grid-template-rows: 1px auto;
-            grid-template-areas: 
-                "section-A"
-                "section-B";
-        }
-            body>section>header{
-                grid-area: section-A;
-                background-color: gray;
-            }
-            body>section>main{
-                grid-area: section-B;
-            }
-                body>section>main>iframe{
-                    height:100%;
-                    width:98%;
-                    padding-left: 1%;
-                    border:none;
-                }
-        
+    body>section>main {
+        grid-area: section-B;
+    }
+    body>section>main>iframe {
+        height: 100%;
+        width: 98%;
+        padding-left: 1%;
+        border: none;
+    }
 }

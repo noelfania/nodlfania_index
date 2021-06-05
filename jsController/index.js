@@ -1,54 +1,60 @@
-'use strict';
-const log = console.log;
+'use strict'
+
+const log = console.log
+const initialPageNumber = 2
+const LastUpdatedDate = '06-01-2021'
 
 // only navigate own html
 const NavBtnUrl = new Map([
 
-    ['Script👍',
+    ['CLI',
+        //Command Line Interface
         [
-        'MS/Batch$nav2_1.html',
-        'UNIX/Bash$nav2_2.html',
+            'MS/Batch$nav2_1.html',
+            'UNIX/Bash$nav2_2.html',
         ]
     ],
-    ['TestCase',
-        [    
+    ['WEB', [
         'CORS$nav3_1.html',
+        'SPA$XXXX.html',
         'Cordova$nav3_2.html',
-        ]
-    ],
-    ['ETC',
-        [
-        'LayoutTest$nav1_1.html',
+    ]],
+    ['ETC', [
         'BookMarks$nav1_2.html',
-        ]
-    ],
+        'Encryption$XXX.html',
+    ]],
+    ['*TestCase', [
+        'Layout$nav1_1.html',
+        'Dummy$XXX.html',
+        
+    ]],
 ])
 
 const Index = {
-    init(){
+    init() {
         log('DOMContentLoaded :: ', 'app.js invoked');
         //window.Index = Index;
 
         var navArea = document.getElementById('navArea');
         //navArea.appendChild();
-        var NavBtnUrls=[];
-        NavBtnUrl.forEach((v,i,a)=>{
+        var NavBtnUrls = [];
+        NavBtnUrl.forEach((v, i, a) => {
             NavBtnUrls.push(...v)
-           // console.log(NavBtnUrls)
+                // console.log(NavBtnUrls)
             var div = document.createElement('div');
-            div.setAttribute('class','category');
+            div.setAttribute('class', 'category');
             var span = document.createElement('span');
-            span.setAttribute('class','title');
-            span.innerText=i;
-           // console.log(i)
+            span.setAttribute('class', 'title');
+            span.innerText = i;
+            // console.log(i)
 
             div.appendChild(span);
 
-            v.forEach((vArray,i,a)=>{
+            v.forEach((vArray, i, a) => {
                 var divInner = document.createElement('div');
-                divInner.setAttribute('class','nav-btn');
+                divInner.setAttribute('class', 'nav-btn');
                 var spanInner = document.createElement('span');
-                spanInner.innerText=vArray.split('$')[0];
+                spanInner.innerText = vArray.split('$')[0];
                 //console.log(vArray.split('$')[0])
                 divInner.appendChild(spanInner)
                 div.appendChild(divInner);
@@ -59,10 +65,10 @@ const Index = {
 
         // link nav-btn with onclick
         var arrNavBtn = document.getElementsByClassName('nav-btn')
-        Array.from(arrNavBtn).forEach((navBtn,i)=>{
-            navBtn.addEventListener('click',function (event){
+        Array.from(arrNavBtn).forEach((navBtn, i) => {
+            navBtn.addEventListener('click', function(event) {
                 let url = `${NavBtnUrls[i].split('$')[1]}`;
-               // console.log(url)
+                // console.log(url)
                 let btnArea = document.getElementsByClassName('nav-btn')[i];
                 return Index.openPage.call(null, url, btnArea, event);
             })
@@ -70,33 +76,32 @@ const Index = {
 
         //link title with onclick
         var arrTitle = document.getElementsByClassName('title');
-        Array.from(arrTitle).forEach((title,i)=>{
-            title.addEventListener('click',function (event){
+        Array.from(arrTitle).forEach((title, i) => {
+            title.addEventListener('click', function(event) {
                 return Index.clickTitleForMobile.call(null, event);
             })
         })
 
         //open initial page
-      //  arrNavBtn[0].click();
-        arrNavBtn[3].click();
+        arrNavBtn[initialPageNumber].click();
+        document.getElementById("LastUpdatedDate").innerText = LastUpdatedDate
     },
-    clickTitleForMobile(event){
+    clickTitleForMobile(event) {
         //initiate all class
         var allNavBtn = document.getElementsByClassName("nav-btn");
-        Array.from(allNavBtn).forEach((v)=>{
+        Array.from(allNavBtn).forEach((v) => {
             v.classList.remove("title_clicked_and_nav-btn_visible")
         })
 
         var invisible = event.target.parentNode.getElementsByClassName("nav-btn");
-        Array.from(invisible).forEach((v)=>{
+        Array.from(invisible).forEach((v) => {
             v.classList.toggle("title_clicked_and_nav-btn_visible")
         })
-    }
-    ,
-    openPage(url, btnArea, event){
-        event ?  event.preventDefault() : null ;
+    },
+    openPage(url, btnArea, event) {
+        event ? event.preventDefault() : null;
 
-        Array.prototype.forEach.call(document.getElementsByClassName('nav-btn'),(v)=>{
+        Array.prototype.forEach.call(document.getElementsByClassName('nav-btn'), (v) => {
             v.classList.remove('nav-btn-clicked');
             v.classList.remove("title_clicked_and_nav-btn_visible")
             v.parentNode.getElementsByClassName('title')[0].classList.remove('nav-btn-clickedForMobile');
@@ -104,13 +109,12 @@ const Index = {
         btnArea.classList.add('nav-btn-clicked');
         btnArea.parentNode.getElementsByClassName('title')[0].classList.add('nav-btn-clickedForMobile');
         var mainContent = document.getElementById('main-content');
-        mainContent.innerText='';
+        mainContent.innerText = '';
         var iframe = document.createElement('iframe');
-        iframe.setAttribute('src',url);
+        iframe.setAttribute('src', url);
         mainContent.appendChild(iframe);
 
 
     }
 };
-
-document.addEventListener('DOMContentLoaded',Index.init);
+document.addEventListener('DOMContentLoaded', Index.init);
